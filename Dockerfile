@@ -14,7 +14,7 @@ RUN sudo apt-get update -qq \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p7_2015_02_13-15_29.tar.gz \
     && tar xvzf gap4r7p7_2015_02_13-15_29.tar.gz \
     && cd gap4r7 \
-    && ./configure \
+    && ./configure --with-gmp=no \
     && make \
     && cd pkg/ace \
     && ./configure ../.. \
