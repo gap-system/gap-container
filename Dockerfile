@@ -40,7 +40,6 @@ RUN sudo apt-get update -qq \
     && cd ../../cohomolo \
     && ./configure \
     && cd standalone/progs.d \
-    && cp makefile.orig makefile \
     && cd ../../ \
     && make \
     && cd ../cvec-* \
