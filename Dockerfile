@@ -60,31 +60,6 @@ RUN sudo apt-get update -qq \
     && make \
     && cd ../grape \
     && ./configure ../.. \
-    && make \
-    && cd ../guava* \
-    && ./configure ../.. \
-    && make \
-    && make install \
-    && cd ../cd io-* \
-    && ./configure \
-    && make \
-    && cd ../json-* \
-    && ./configure \
-    && make \
-    && cd ../kbmag \
-    && make clean \
-    && ./configure ../.. \
-    && make COPTS="-O2 -g" \
-    && cd ../nq-* \
-    && ./configure \
-    && make \
-    && cd ../orb-* \
-    && ./configure \
-    && make \
-    && cd .. \
-    && rm -f ALLPKG \
-    && cd PolymakeInterface \
-    && ./configure ../.. \
     && make
 
 # Set up new user and home directory in environment.
