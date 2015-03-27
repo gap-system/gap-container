@@ -1,6 +1,6 @@
 FROM ubuntu:utopic
 
-MAINTAINER GAP Project
+MAINTAINER GAP Project <support@gap-system.org>
 
 RUN sudo apt-get update -qq \
     && sudo apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget \
