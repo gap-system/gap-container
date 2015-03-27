@@ -6,7 +6,9 @@ RUN sudo apt-get update -qq \
     && sudo apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p7_2015_02_13-15_29.tar.gz \
     && tar xvzf gap4r7p7_2015_02_13-15_29.tar.gz \
-    && cd ace \
+    && ./configure \
+    && make \
+    && cd pkg/ace \
     && ./configure ../.. \
     && make \
     && cd ../anupq* \
