@@ -13,7 +13,7 @@ RUN sudo apt-get update -qq \
     && cd /home/gap/inst \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p7_2015_02_13-15_29.tar.gz \
     && tar xvzf gap4r7p7_2015_02_13-15_29.tar.gz \
-    && cd gap47r \
+    && cd gap4r7 \
     && ./configure \
     && make \
     && cd pkg/ace \
@@ -109,7 +109,7 @@ RUN sudo apt-get update -qq \
 # See docker issue 2637: https://github.com/docker/docker/issues/2637
 USER gap
 ENV HOME /home/gap
-ENV GAP_HOME /home/gap/inst/gap47r
+ENV GAP_HOME /home/gap/inst/gap4r7
 ENV PATH ${GAP_HOME}/bin:${PATH}
 
 # Start at $HOME.
