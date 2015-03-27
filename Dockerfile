@@ -51,9 +51,6 @@ RUN sudo apt-get update -qq \
     && cd ../example \
     && ./configure ../.. \
     && make \
-    && cd ../float-* \
-    && ./configure \
-    && make \
     && cd ../fplsa \
     && ./configure ../.. \
     && make CC="gcc -O2 " \
@@ -78,19 +75,12 @@ RUN sudo apt-get update -qq \
     && make clean \
     && ./configure ../.. \
     && make COPTS="-O2 -g" \
-    && cd ../linboxing \
-    && ./configure \
-    && make \
     && cd ../nq-* \
     && ./configure \
     && make \
     && cd ../orb-* \
     && ./configure \
     && make \
-    && cd ../pargap \
-    && ./configure ../.. \
-    && make \
-    && cp bin/pargap.sh ../../bin/ \
     && cd .. \
     && rm -f ALLPKG \
     && cd PolymakeInterface \
