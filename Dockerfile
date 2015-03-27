@@ -41,7 +41,7 @@ RUN sudo apt-get update -qq \
     && ./configure \
     && cd standalone/progs.d \
     && cp makefile.orig makefile \
-    && cd ../.. \
+    && cd ../../ \
     && make \
     && cd ../cvec-* \
     && ./configure \
@@ -96,13 +96,7 @@ RUN sudo apt-get update -qq \
     && rm -f ALLPKG \
     && cd PolymakeInterface \
     && ./configure ../.. \
-    && make \
-    && cd ../xgap \
-    && ./configure \
-    && make \
-    && rm -f ../../bin/xgap.sh \
-    && cp bin/xgap.sh ../../bin/
-
+    && make
 
 # Set up new user and home directory in environment.
 # Note that WORKDIR will not expand environment variables in docker versions < 1.3.1.
