@@ -19,9 +19,6 @@ RUN sudo apt-get update -qq \
     && cd pkg/ace \
     && ./configure ../.. \
     && make \
-    && cd ../anupq* \
-    && ./configure \
-    && make \
     && cd ../atlasrep \
     && chmod 1777 datagens dataword \
     && cd ../Browse \
