@@ -13,6 +13,7 @@ RUN sudo apt-get update -qq \
     && cd /home/gap/inst \
     && wget http://www.gap-system.org/pub/gap/gap47/tar.gz/gap4r7p7_2015_02_13-15_29.tar.gz \
     && tar xvzf gap4r7p7_2015_02_13-15_29.tar.gz \
+    && rm gap4r7p7_2015_02_13-15_29.tar.gz \
     && cd gap4r7 \
     && ./configure --with-gmp=no \
     && make \
