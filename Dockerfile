@@ -9,7 +9,6 @@ RUN sudo apt-get update -qq \
     && chown -R gap:gap /home/gap/ \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && mkdir -p /home/gap/inst \
-    && chown -R gap:gap /home/gap/inst \
     && cd /home/gap/inst \
     && wget http://www.gap-system.org/pub/gap/gap4core/gap4r7p7_nopackages.zip \
     && unzip gap4r7p7_nopackages.zip \
@@ -22,7 +21,8 @@ RUN sudo apt-get update -qq \
     && cd pkg \
     && wget http://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.7.7.tar.gz \
     && tar xvzf packages-required-stable-v4.7.7.tar.gz \
-    && rm packages-required-stable-v4.7.7.tar.gz
+    && rm packages-required-stable-v4.7.7.tar.gz \
+    && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
 # Note that WORKDIR will not expand environment variables in docker versions < 1.3.1.
