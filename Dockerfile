@@ -10,18 +10,18 @@ RUN sudo apt-get update -qq \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
-    && wget http://www.gap-system.org/pub/gap/gap4core/gap4r7p8_nopackages.zip \
-    && unzip gap4r7p8_nopackages.zip \
-    && rm gap4r7p8_nopackages.zip \
+    && wget http://www.gap-system.org/pub/gap/gap4core/gap4r7p9_nopackages.zip \
+    && unzip gap4r7p9_nopackages.zip \
+    && rm gap4r7p9_nopackages.zip \
     && cd gap4r7 \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
     && mkdir pkg \
     && cd pkg \
-    && wget http://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.7.8.tar.gz \
-    && tar xvzf packages-required-stable-v4.7.8.tar.gz \
-    && rm packages-required-stable-v4.7.8.tar.gz \
+    && wget http://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.7.9.tar.gz \
+    && tar xvzf packages-required-stable-v4.7.9.tar.gz \
+    && rm packages-required-stable-v4.7.9.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
