@@ -1,4 +1,4 @@
-FROM ubuntu:utopic
+FROM ubuntu:trusty
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
