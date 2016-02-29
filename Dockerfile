@@ -10,18 +10,18 @@ RUN sudo apt-get update -qq \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
-    && wget http://www.gap-system.org/pub/gap/gap4core/gap4r7p9_nopackages.zip \
-    && unzip gap4r7p9_nopackages.zip \
-    && rm gap4r7p9_nopackages.zip \
-    && cd gap4r7 \
+    && wget http://www.gap-system.org/pub/gap/gap4core/gap4r8p2_nopackages.zip \
+    && unzip gap4r8p2_nopackages.zip \
+    && rm gap4r8p2_nopackages.zip \
+    && cd gap4r8 \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
     && mkdir pkg \
     && cd pkg \
-    && wget http://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.7.9.tar.gz \
-    && tar xvzf packages-required-stable-v4.7.9.tar.gz \
-    && rm packages-required-stable-v4.7.9.tar.gz \
+    && wget http://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.8.2.tar.gz \
+    && tar xvzf packages-required-stable-v4.8.2.tar.gz \
+    && rm packages-required-stable-v4.8.2.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
@@ -29,7 +29,7 @@ RUN sudo apt-get update -qq \
 # See docker issue 2637: https://github.com/docker/docker/issues/2637
 USER gap
 ENV HOME /home/gap
-ENV GAP_HOME /home/gap/inst/gap4r7
+ENV GAP_HOME /home/gap/inst/gap4r8
 ENV PATH ${GAP_HOME}/bin:${PATH}
 
 # Start at $HOME.
