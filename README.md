@@ -19,7 +19,7 @@ gap>
 ```
 
 This GAP Docker container provides only the core GAP system and the GAPDoc package
-which is needed by GAP. Inside the container, GAP is installed in `/home/gap/inst/gap4r7/`.
+which is needed by GAP. Inside the container, GAP is installed in `/home/gap/inst/gap4r8/`.
 
 This container may be used, for example, in automated tests of different configurations 
 of GAP packages by installing them in the `pkg` subdirectory. An example of a Travis build
