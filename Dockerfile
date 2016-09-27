@@ -14,6 +14,9 @@ RUN sudo apt-get update -qq \
     && unzip gap4r8p5_nopackages.zip \
     && rm gap4r8p5_nopackages.zip \
     && cd gap4r8 \
+    && wget http://www.gap-system.org/Manuals/doc/gap4r8p5_manuals.tar.gz \
+    && tar xvzf gap4r8p5_manuals.tar.gz \
+    && rm gap4r8p5_manuals.tar.gz \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
