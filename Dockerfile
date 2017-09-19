@@ -10,21 +10,21 @@ RUN sudo apt-get update -qq \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
     && mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
-    && wget https://www.gap-system.org/pub/gap/gap4core/gap4r8p7_nopackages.zip \
-    && unzip gap4r8p7_nopackages.zip \
-    && rm gap4r8p7_nopackages.zip \
+    && wget https://www.gap-system.org/pub/gap/gap4core/gap4r8p8_nopackages.zip \
+    && unzip gap4r8p8_nopackages.zip \
+    && rm gap4r8p8_nopackages.zip \
     && cd gap4r8 \
-    && wget https://www.gap-system.org/Manuals/doc/gap4r8p7_manuals.tar.gz \
-    && tar xvzf gap4r8p7_manuals.tar.gz \
-    && rm gap4r8p7_manuals.tar.gz \
+    && wget https://www.gap-system.org/Manuals/doc/gap4r8p8_manuals.tar.gz \
+    && tar xvzf gap4r8p8_manuals.tar.gz \
+    && rm gap4r8p8_manuals.tar.gz \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
     && mkdir pkg \
     && cd pkg \
-    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.8.7.tar.gz \
-    && tar xvzf packages-required-stable-v4.8.7.tar.gz \
-    && rm packages-required-stable-v4.8.7.tar.gz \
+    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.8.8.tar.gz \
+    && tar xvzf packages-required-stable-v4.8.8.tar.gz \
+    && rm packages-required-stable-v4.8.8.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
