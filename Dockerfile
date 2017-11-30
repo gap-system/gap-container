@@ -4,7 +4,8 @@ MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    sudo dpkg --add-architecture i386 \
     && sudo apt-get update -qq \
-    && sudo apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget unzip libgmp3-dev cmake \
+    && sudo apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget \
+                                   unzip libgmp3-dev cmake gcc-multilib \
     && adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-password gap \
     && adduser gap sudo \
     && chown -R gap:gap /home/gap/ \
