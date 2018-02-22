@@ -1,15 +1,19 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
-RUN    sudo dpkg --add-architecture i386 \
-    && sudo apt-get update -qq \
-    && sudo apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget \
-                                   unzip libgmp3-dev cmake gcc-multilib \
+RUN    dpkg --add-architecture i386 \
+    && apt-get update -qq \
+    && apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget \
+                              unzip libgmp3-dev cmake gcc-multilib gcc-5 g++-5 gcc-5-multilib sudo \
     && adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-password gap \
     && adduser gap sudo \
     && chown -R gap:gap /home/gap/ \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 60 \
+    && cd /home/gap \
+    && touch .sudo_as_admin_successful \
     && mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
     && wget https://www.gap-system.org/pub/gap/gap4core/gap4r8p9_nopackages.zip \
