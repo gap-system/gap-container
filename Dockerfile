@@ -18,21 +18,21 @@ RUN    adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-pas
 
 RUN    mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
-    && wget https://www.gap-system.org/pub/gap/gap4core/gap4r8p9_nopackages.zip \
-    && unzip gap4r8p9_nopackages.zip \
-    && rm gap4r8p9_nopackages.zip \
+    && wget https://www.gap-system.org/pub/gap/gap4core/gap4r8p10_nopackages.zip \
+    && unzip gap4r8p10_nopackages.zip \
+    && rm gap4r8p10_nopackages.zip \
     && cd gap4r8 \
-    && wget https://www.gap-system.org/Manuals/gap-4.8.9-manuals.tar.gz \
-    && tar xvzf gap-4.8.9-manuals.tar.gz \
-    && rm gap-4.8.9-manuals.tar.gz \
+    && wget https://www.gap-system.org/Manuals/gap-4.8.10-manuals.tar.gz \
+    && tar xvzf gap-4.8.10-manuals.tar.gz \
+    && rm gap-4.8.10-manuals.tar.gz \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
     && mkdir pkg \
     && cd pkg \
-    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.8.9.tar.gz \
-    && tar xvzf packages-required-stable-v4.8.9.tar.gz \
-    && rm packages-required-stable-v4.8.9.tar.gz \
+    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.8.10.tar.gz \
+    && tar xvzf packages-required-stable-v4.8.10.tar.gz \
+    && rm packages-required-stable-v4.8.10.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
