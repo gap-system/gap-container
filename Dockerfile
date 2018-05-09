@@ -4,7 +4,7 @@ MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    dpkg --add-architecture i386 \
     && apt-get update -qq \
-    && apt-get -qq install -y build-essential m4 libreadline6-dev libncurses5-dev wget \
+    && apt-get -qq install -y autoconf build-essential m4 libreadline6-dev libncurses5-dev wget \
                               unzip libgmp3-dev cmake gcc-multilib gcc-5 g++-5 gcc-5-multilib sudo
 
 RUN    adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-password gap \
@@ -25,6 +25,7 @@ RUN    mkdir -p /home/gap/inst \
     && wget https://www.gap-system.org/Manuals/gap-4.9.1-manuals.tar.gz \
     && tar xvzf gap-4.9.1-manuals.tar.gz \
     && rm gap-4.9.1-manuals.tar.gz \
+    && ./autogen.sh \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
