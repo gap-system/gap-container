@@ -1,18 +1,16 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    dpkg --add-architecture i386 \
     && apt-get update -qq \
     && apt-get -qq install -y autoconf build-essential m4 libreadline6-dev libncurses5-dev wget \
-                              unzip libgmp3-dev cmake gcc-multilib gcc-5 g++-5 gcc-5-multilib sudo
+                              unzip libgmp3-dev cmake gcc-multilib gcc g++ sudo
 
 RUN    adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-password gap \
     && adduser gap sudo \
     && chown -R gap:gap /home/gap/ \
     && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 60 \
     && cd /home/gap \
     && touch .sudo_as_admin_successful
 
