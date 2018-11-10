@@ -20,10 +20,10 @@ file for further instructions.
 ```
 $ docker run --rm -i -t gapsystem/gap-container
 gap@8d43e9eb23de:~$ gap
- *********   GAP 4.9.1 of 05-May-2018
+ *********   GAP 4.10.0 of 01-Nov-2018
  *  GAP  *   https://www.gap-system.org
  *********   Architecture: x86_64-pc-linux-gnu-default64
- Configuration:  gmp 6.1.0, readline
+ Configuration:  gmp 6.1.2, readline
  Loading the library and packages ...
 #I  autpgrp package is not available. Check that the name is correct
 #I  and it is present in one of the GAP root directories (see '??RootPaths')
@@ -51,7 +51,7 @@ gap@8d43e9eb23de:~$ gap
 #I  and it is present in one of the GAP root directories (see '??RootPaths')
 #I  tomlib package is not available. Check that the name is correct
 #I  and it is present in one of the GAP root directories (see '??RootPaths')
- Packages:   GAPDoc 1.6.1, PrimGrp 3.3.1, SmallGrp 1.3, TransGrp 2.0.2
+ Packages:   GAPDoc 1.6.2, PrimGrp 3.3.2, SmallGrp 1.3, TransGrp 2.0.4
  Try '??help' for help. See also '?copyright', '?cite' and '?authors'
 gap> 
 ```
