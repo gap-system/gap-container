@@ -16,21 +16,21 @@ RUN    adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-pas
 
 RUN    mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
-    && wget https://www.gap-system.org/pub/gap/gap4core/gap-4.9.3-core.zip \
-    && unzip gap-4.9.3-core.zip \
-    && rm gap-4.9.3-core.zip \
-    && cd gap-4.9.3 \
-    && wget https://www.gap-system.org/Manuals/gap-4.9.3-manuals.tar.gz \
-    && tar xvzf gap-4.9.3-manuals.tar.gz \
-    && rm gap-4.9.3-manuals.tar.gz \
+    && wget https://www.gap-system.org/pub/gap/gap4core/gap-4.10.0-core.zip \
+    && unzip gap-4.10.0-core.zip \
+    && rm gap-4.10.0-core.zip \
+    && cd gap-4.10.0 \
+    && wget https://www.gap-system.org/Manuals/gap-4.10.0-manuals.tar.gz \
+    && tar xvzf gap-4.10.0-manuals.tar.gz \
+    && rm gap-4.10.0-manuals.tar.gz \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
     && mkdir pkg \
     && cd pkg \
-    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-stable-v4.9.3.tar.gz \
-    && tar xvzf packages-required-stable-v4.9.3.tar.gz \
-    && rm packages-required-stable-v4.9.3.tar.gz \
+    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-v4.10.0.tar.gz \
+    && tar xvzf packages-required-v4.10.0.tar.gz \
+    && rm packages-required-v4.10.0.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
@@ -38,7 +38,7 @@ RUN    mkdir -p /home/gap/inst \
 # See docker issue 2637: https://github.com/docker/docker/issues/2637
 USER gap
 ENV HOME /home/gap
-ENV GAP_HOME /home/gap/inst/gap-4.9.3
+ENV GAP_HOME /home/gap/inst/gap-4.10.0
 ENV PATH ${GAP_HOME}/bin:${PATH}
 
 # Start at $HOME.
