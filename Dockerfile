@@ -28,11 +28,8 @@ RUN    mkdir -p /home/gap/inst \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
-    && mkdir pkg \
-    && cd pkg \
-    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-v${GAP_VERSION}.tar.gz \
-    && tar xvzf packages-required-v${GAP_VERSION}.tar.gz \
-    && rm packages-required-v${GAP_VERSION}.tar.gz \
+    && make bootstrap-pkg-minimal \
+    && rm packages-*.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
