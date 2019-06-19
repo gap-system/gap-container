@@ -1,5 +1,7 @@
 FROM ubuntu:bionic
 
+ENV GAP_VERSION 4.10.0
+
 MAINTAINER The GAP Group <support@gap-system.org>
 
 RUN    dpkg --add-architecture i386 \
@@ -16,21 +18,21 @@ RUN    adduser --quiet --shell /bin/bash --gecos "GAP user,101,," --disabled-pas
 
 RUN    mkdir -p /home/gap/inst \
     && cd /home/gap/inst \
-    && wget https://www.gap-system.org/pub/gap/gap4core/gap-4.10.0-core.zip \
-    && unzip gap-4.10.0-core.zip \
-    && rm gap-4.10.0-core.zip \
-    && cd gap-4.10.0 \
-    && wget https://www.gap-system.org/Manuals/gap-4.10.0-manuals.tar.gz \
-    && tar xvzf gap-4.10.0-manuals.tar.gz \
-    && rm gap-4.10.0-manuals.tar.gz \
+    && wget https://www.gap-system.org/pub/gap/gap4core/gap-${GAP_VERSION}-core.zip \
+    && unzip gap-${GAP_VERSION}-core.zip \
+    && rm gap-${GAP_VERSION}-core.zip \
+    && cd gap-${GAP_VERSION} \
+    && wget https://www.gap-system.org/Manuals/gap-${GAP_VERSION}-manuals.tar.gz \
+    && tar xvzf gap-${GAP_VERSION}-manuals.tar.gz \
+    && rm gap-${GAP_VERSION}-manuals.tar.gz \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
     && mkdir pkg \
     && cd pkg \
-    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-v4.10.0.tar.gz \
-    && tar xvzf packages-required-v4.10.0.tar.gz \
-    && rm packages-required-v4.10.0.tar.gz \
+    && wget https://www.gap-system.org/pub/gap/gap4pkgs/packages-required-v${GAP_VERSION}.tar.gz \
+    && tar xvzf packages-required-v${GAP_VERSION}.tar.gz \
+    && rm packages-required-v${GAP_VERSION}.tar.gz \
     && chown -R gap:gap /home/gap/inst
 
 # Set up new user and home directory in environment.
@@ -38,7 +40,7 @@ RUN    mkdir -p /home/gap/inst \
 # See docker issue 2637: https://github.com/docker/docker/issues/2637
 USER gap
 ENV HOME /home/gap
-ENV GAP_HOME /home/gap/inst/gap-4.10.0
+ENV GAP_HOME /home/gap/inst/gap-${GAP_VERSION}
 ENV PATH ${GAP_HOME}/bin:${PATH}
 
 # Start at $HOME.
