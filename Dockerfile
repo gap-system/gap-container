@@ -1,6 +1,6 @@
 FROM ubuntu:bionic
 
-ENV GAP_VERSION 4.10.1
+ENV GAP_VERSION 4.10.2
 
 MAINTAINER The GAP Group <support@gap-system.org>
 
