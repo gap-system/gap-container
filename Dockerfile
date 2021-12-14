@@ -22,9 +22,6 @@ RUN    mkdir -p /home/gap/inst \
     && unzip gap-${GAP_VERSION}-core.zip \
     && rm gap-${GAP_VERSION}-core.zip \
     && cd gap-${GAP_VERSION} \
-    && wget https://www.gap-system.org/Manuals/gap-${GAP_VERSION}-manuals.tar.gz \
-    && tar xvzf gap-${GAP_VERSION}-manuals.tar.gz \
-    && rm gap-${GAP_VERSION}-manuals.tar.gz \
     && ./configure --with-gmp=system \
     && make \
     && cp bin/gap.sh bin/gap \
